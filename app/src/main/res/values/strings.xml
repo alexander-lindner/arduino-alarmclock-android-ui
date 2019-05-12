@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">AlarmClock</string>
+    <string name="serverUrl">ServerUrl</string>
+    <string name="name">Name</string>
+    <string name="alarm_icon">Alarm Icon</string>
+    <string name="days">Days</string>
+    <string name="calender_icon">Calender Icon</string>
+    <string name="url">Arduino Url</string>
+    <string name="save">Save</string>
+    <string name="tuesday">Tuesday</string>
+    <string name="thursday">Thursday</string>
+    <string name="friday">Friday</string>
+    <string name="wednesday">Wednesday</string>
+    <string name="monday">Monday</string>
+    <string name="saturday">Saturday</string>
+    <string name="sunday">Sunday</string>
+    <string name="holidays">On Holidays</string>
+    <string name="time">Time</string>
+    <string name="alarm">Alarm Clocks</string>
+    <string name="settings">Settings</string>
+    <string name="date">Date</string>
+    <string name="delete">Delete</string>
+    <string name="during_week">during the week</string>
+    <string name="each_day">Each Day</string>
+    <string name="weekend">Wochende</string>
+</resources>
