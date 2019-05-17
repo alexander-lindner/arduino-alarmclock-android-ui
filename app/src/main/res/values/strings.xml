@@ -23,4 +23,6 @@
     <string name="during_week">during the week</string>
     <string name="each_day">Each Day</string>
     <string name="weekend">Wochende</string>
+    <string name="text_info_add_days">Select on which days the alarm should ring. Leave it empty for a one use alarm</string>
+    <string name="text_holidays">Should it ring on holidays?</string>
 </resources>

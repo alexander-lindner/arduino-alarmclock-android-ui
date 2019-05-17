@@ -24,4 +24,6 @@
     <string name="during_week">Unter der Woche</string>
     <string name="each_day">Jeden Tag</string>
     <string name="weekend">Wochenende</string>
+    <string name="text_info_add_days">Wähle aus, wann der Wecker alarm schagen soll. Leer lassen für einen einmal gebrauch.</string>
+    <string name="text_holidays">Soll der Alarm auch an Feiertagen losgehen?</string>
 </resources>

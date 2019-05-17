@@ -15,10 +15,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textfield.TextInputEditText;
 
+import java.time.DayOfWeek;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.time.temporal.TemporalAdjusters;
 import java.util.Calendar;
+import java.util.HashMap;
 import java.util.Objects;
+import java.util.stream.IntStream;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -65,11 +69,27 @@ public class AddActivity extends AppCompatActivity {
             final int hour = Integer.parseInt(time[0]);
             final int minute = Integer.parseInt(time[1]);
             final LocalDateTime localDateTime = LocalDateTime.now();
-            localDateTime.withHour(hour).withMinute(minute);
+
+            final HashMap<DayOfWeek, Boolean> queue = new HashMap<>();
+            queue.put(DayOfWeek.MONDAY, this.getCheckBox(R.id.monday));
+            queue.put(DayOfWeek.TUESDAY, this.getCheckBox(R.id.tuesday));
+            queue.put(DayOfWeek.WEDNESDAY, this.getCheckBox(R.id.wednesday));
+            queue.put(DayOfWeek.THURSDAY, this.getCheckBox(R.id.thursday));
+            queue.put(DayOfWeek.FRIDAY, this.getCheckBox(R.id.friday));
+            queue.put(DayOfWeek.SATURDAY, this.getCheckBox(R.id.saturday));
+            queue.put(DayOfWeek.SUNDAY, this.getCheckBox(R.id.sunday));
+
+            final DayOfWeek dayOfWeek = localDateTime.getDayOfWeek();
+            final DayOfWeek[] current = new DayOfWeek[1];
+            IntStream.range(0, 7).forEach(i -> {
+                if (queue.get(dayOfWeek.plus(i))) {
+                    current[0] = dayOfWeek.plus(i);
+                }
+            });
 
             retrofit.add(
                     String.valueOf(name.getText()),
-                    localDateTime.withHour(hour).withMinute(minute).format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")),
+                    localDateTime.withHour(hour).withMinute(minute).with(TemporalAdjusters.nextOrSame(current[0])).format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")),
                     this.getCheckBox(R.id.monday),
                     this.getCheckBox(R.id.tuesday),
                     this.getCheckBox(R.id.wednesday),
