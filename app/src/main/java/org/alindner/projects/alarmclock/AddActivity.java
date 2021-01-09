@@ -55,7 +55,7 @@ public class AddActivity extends AppCompatActivity {
             mTimePicker.setTitle("Select Time");
             mTimePicker.show();
         });
-        final String url = Objects.requireNonNull(sharedPref.getString(String.valueOf(R.string.serverUrl), "http://192.168.178.43"));
+        final String url = Objects.requireNonNull(sharedPref.getString(String.valueOf(R.string.serverUrl), "http://192.168.0.18"));
         final RestInterface retrofit = new Retrofit.Builder()
                 .baseUrl(url)
                 .addConverterFactory(GsonConverterFactory.create())

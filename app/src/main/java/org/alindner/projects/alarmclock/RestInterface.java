@@ -1,6 +1,7 @@
 package org.alindner.projects.alarmclock;
 
 import org.alindner.projects.alarmclock.models.ResultModel;
+import org.alindner.projects.alarmclock.models.SettingsModel;
 
 import retrofit2.Call;
 import retrofit2.http.DELETE;
@@ -29,4 +30,15 @@ public interface RestInterface {
 
     @DELETE("/")
     Call<Object> delete(@Query("id") Long id);
+
+    @POST("/settings")
+    @FormUrlEncoded
+    Call<Object> setIntensity(@Field("intensity") int intensity);
+
+    @POST("/settings")
+    @FormUrlEncoded
+    Call<Object> setUrl(@Field("streamurl") String url);
+
+    @GET("/settings")
+    Call<SettingsModel> getSettings();
 }
